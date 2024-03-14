@@ -16,6 +16,11 @@ class Welcome {
                         "0. 종료            | 프로그램 종료"
             )
             println("원하는 메뉴를 선택하세요")
+            println(
+                "[ ORDER MENU]\n"+
+                        "5. Order \n" +
+                        "6. Cancel"
+            )
 
             var selectMenu = readln().toInt()
 
@@ -25,7 +30,8 @@ class Welcome {
                 2 -> displayCustard()
                 3 -> displayDrinks()
                 4 -> displayBeer()
-                0 -> break
+                5 -> cart.showCart()
+                0,6 -> break
             }
         }
     }

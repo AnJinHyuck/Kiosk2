@@ -1,5 +1,5 @@
 package com.example.practicekiosk
 
-class DisplayCustard {
+class OrderMenu(): Cart(){
 
 }
