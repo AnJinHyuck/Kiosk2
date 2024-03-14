@@ -7,6 +7,6 @@ class MainScreen {
 
 fun main() {
     Welcome()
-
 }
+
 
