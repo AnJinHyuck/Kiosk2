@@ -17,21 +17,23 @@ class Welcome {
             )
             println("원하는 메뉴를 선택하세요")
             println(
-                "[ ORDER MENU]\n"+
+                "[ ORDER MENU]\n" +
                         "5. Order \n" +
                         "6. Cancel"
             )
+            try {
+                var selectMenu = readln().toInt()
+                when (selectMenu) {
 
-            var selectMenu = readln().toInt()
-
-            when (selectMenu) {
-
-                1 -> displayBurgers()
-                2 -> displayCustard()
-                3 -> displayDrinks()
-                4 -> displayBeer()
-                5 -> cart.showCart()
-                0,6 -> break
+                    1 -> displayBurgers()
+                    2 -> displayCustard()
+                    3 -> displayDrinks()
+                    4 -> displayBeer()
+                    5 -> cart.showCart()
+                    0, 6 -> break
+                }
+            } catch (e: java.lang.NumberFormatException) {
+                println("숫자를 입력하세요")
             }
         }
     }

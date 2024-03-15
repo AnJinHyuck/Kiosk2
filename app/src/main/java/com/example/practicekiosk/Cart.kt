@@ -4,28 +4,34 @@ import android.view.MenuItem
 
 open class Cart {
     val cartItem = mutableListOf<Pair<String, Double>>()
+    val wallet: Double = 100.0
     fun addItem(name: String, price: Double) {
         cartItem.add(Pair(name, price))
     }
 
-    fun showCart() {
+    fun showCart(): Double {
+        val sumOfItem: Double = cartItem.sumOf { it.second }
         if (cartItem.isEmpty()) {
             println("장바구니가 비어있습니다.")
-            return
         }
         println("장바구니 목록")
         cartItem.forEach { (name, price) ->
             println("${name} - ${price}")
         }
-        println("계산하시겠습니까?\n" + "1.네    2.아니요 더 쇼핑할게요")
+        println("총액: ${sumOfItem}")
+        println("계산하시겠습니까?      남은 잔액:${wallet}\n" + "1.네    2.아니요 더 쇼핑할게요")
         var checkout = readln().toInt()
-        return sum()
+        if (checkout == 2) {
+            Welcome().welcomeScreen()
+        }
+        return sum(sumOfItem)
     }
 
-    fun sum() {
-        val sumOfItem: Double = cartItem.sumOf { it.second }
-        println("총액은 ${sumOfItem}입니다.")
+    fun sum(sumOfItem: Double): Double {
+        println("잔액은 ${wallet - sumOfItem}입니다.")
+        return sumOfItem
     }
+
 }
 
 
